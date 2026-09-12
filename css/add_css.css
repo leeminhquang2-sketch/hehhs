@@ -1,0 +1,83 @@
+/*
+   이 파일은 서버에 위치 하면서 동적 로딩하게 한다
+   파일명 : /css/add_css.css
+ */
+
+.input_window_up { /* 입력 시스템 팝업을 위로 올릴때  */
+	animation-name				: input_window_up;	
+	animation-duration			: 0.6s;
+	animation-iteration-count	: 1;	
+	animation-timing-function	: ease;	
+	animation-delay					: 0s;				
+	animation-direction			: normal;		
+	animation-play-state		: running;		
+	animation-fill-mode			: forwards; /* 올라간 상태에서 머물러야 한다.  none 하면 원래데로 가버림 */			
+}
+@keyframes input_window_up
+{
+	0%
+	{
+		transform : translateY(720px);
+	}
+	100%	
+	{
+		transform : translateY(471px);
+
+	}
+}
+
+
+.input_window_down { /* 입력 시스템 팝업을 낼릴때  */
+	animation-name				: input_window_down;	
+	animation-duration			: 0.6s;
+	animation-iteration-count	: 1;	
+	animation-timing-function	: ease;	
+	animation-delay					: 0s;				
+	animation-direction			: normal;		
+	animation-play-state		: running;		
+	animation-fill-mode			: forwards; /* 내려간 상태에서 머물러야 한다.  none 하면 원래데로 가버림 */		
+}
+@keyframes input_window_down
+{
+	0%
+	{
+		transform : translateY(471px);
+	}
+	100%	
+	{
+		transform : translateY(720px);
+	}
+}
+
+/* 길드 채팅창에서 시간표시 */
+.chat_time
+{
+	font-size : 13px;
+}
+
+/*길드 채팅창에서 날짜표시 */
+.chat_date
+{
+	width: 200px;
+	font-size : 13px;
+	color : #1a1a1a;
+	text-align : center;
+	background : #708e8b;	
+}
+
+/*길드시즌순위 1등 뒤에 빙글빙글 도는 불빛*/
+/* ?(깜짝상자팝업) 나타날때 빙글빙글 돌면서 확대 된다. */ /*사용안함*/
+.light_circle {
+	animation-name				: light_circle;
+	animation-duration			: .4s;
+	animation-iteration-count	: 1;
+	animation-timing-function:ease-in;
+	animation-direction			: normal;
+	animation-fill-mode			: backwards;
+	animation-play-state		: running;		
+}
+@keyframes light_circle
+{
+    from { transform: rotate(0deg);	opacity: 1;}
+	to		{ transform: rotate(360deg); opacity: 1;}
+}
