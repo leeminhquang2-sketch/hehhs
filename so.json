@@ -1,0 +1,89 @@
+{
+  "B2B_ULSAN": {
+    "id": "JCN",
+    "name": "울산",
+    "code": 65,
+    "tel": "1877-9100",
+    "trick": ["function", "color", "arrow"],
+    "app_key": "UE15KGPSEK992UO89PFRTTBOS4"
+  },
+  "B2B_GWANGJU": {
+    "id": "CMB",
+    "name": "광주",
+    "code": 66,
+    "tel": "6600-0000",
+    "trick": ["function", "color", "arrow"]
+  },
+  "HCN_DMC": {
+    "id": "HCN",
+    "name": "DMC(모니터링 L/B)",
+    "code": 1,
+    "tel": "1877-8000",
+    "trick": ["function", "color", "arrow"],
+    "app_key": "NEEBJF29F2KONAV6VCN4HTGTNC"
+  },
+  "HCN_SEOCHO": {
+    "id": "HCN",
+    "name": "서초(SO1 T/B)",
+    "code": 8,
+    "tel": "1877-8000",
+    "trick": ["function", "color", "arrow"],
+    "app_key": "NEEBJF29F2KONAV6VCN4HTGTNC"
+  },
+  "HCN_DONGJAK": {
+    "id": "HCN",
+    "name": "동작",
+    "code": 9,
+    "tel": "1877-8000",
+    "trick": ["function", "color", "arrow"],
+    "app_key": "NEEBJF29F2KONAV6VCN4HTGTNC"
+  },
+  "HCN_GWANAK": {
+    "id": "HCN",
+    "name": "관악",
+    "code": 10,
+    "tel": "1877-8000",
+    "trick": ["function", "color", "arrow"],
+    "app_key": "NEEBJF29F2KONAV6VCN4HTGTNC"
+  },
+  "HCN_CHUNGBUK": {
+    "id": "HCN",
+    "name": "충북(SO2 T/B)",
+    "code": 11,
+    "tel": "1877-8000",
+    "trick": ["function", "color", "arrow"],
+    "app_key": "NEEBJF29F2KONAV6VCN4HTGTNC"
+  },
+  "HCN_KUMHO": {
+    "id": "HCN",
+    "name": "금호",
+    "code": 13,
+    "tel": "1877-8000",
+    "trick": ["function", "color", "arrow"],
+    "app_key": "NEEBJF29F2KONAV6VCN4HTGTNC"
+  },
+  "HCN_BUSAN": {
+    "id": "HCN",
+    "name": "부산",
+    "code": 14,
+    "tel": "1877-8000",
+    "trick": ["function", "color", "arrow"],
+    "app_key": "NEEBJF29F2KONAV6VCN4HTGTNC"
+  },
+  "HCN_GYEONGBUK": {
+    "id": "HCN",
+    "name": "경북",
+    "code": 15,
+    "tel": "1877-8000",
+    "trick": ["function", "color", "arrow"],
+    "app_key": "NEEBJF29F2KONAV6VCN4HTGTNC"
+  },
+  "HCN_SAERONET": {
+    "id": "HCN",
+    "name": "새로넷(SO3 T/B)",
+    "code": 16,
+    "tel": "1877-8000",
+    "trick": ["function", "color", "arrow"],
+    "app_key": "NEEBJF29F2KONAV6VCN4HTGTNC"
+  }
+}

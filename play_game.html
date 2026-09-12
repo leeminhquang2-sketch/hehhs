@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Gold Tower Defence M - Busidol Web Launcher</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        html, body {
+            width: 100%;
+            height: 100%;
+            background-color: #0b0c10;
+            color: #ffffff;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            overflow: hidden;
+        }
+        #launcher-header {
+            height: 48px;
+            background: linear-gradient(90deg, #1f2833 0%, #0b0c10 100%);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 16px;
+            border-bottom: 2px solid #66fcf1;
+            z-index: 100;
+        }
+        .title-group {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .title-group h1 {
+            font-size: 18px;
+            color: #66fcf1;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .badge {
+            background-color: #45a29e;
+            color: #0b0c10;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 12px;
+            font-weight: bold;
+        }
+        .btn-group {
+            display: flex;
+            gap: 10px;
+        }
+        .btn {
+            background-color: #1f2833;
+            color: #66fcf1;
+            border: 1px solid #66fcf1;
+            padding: 6px 14px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: bold;
+            font-size: 13px;
+            transition: all 0.2s ease;
+        }
+        .btn:hover {
+            background-color: #66fcf1;
+            color: #0b0c10;
+            box-shadow: 0 0 10px rgba(102, 252, 241, 0.5);
+        }
+        .btn.active {
+            background-color: #45a29e;
+            color: #ffffff;
+            border-color: #45a29e;
+        }
+        #game-container {
+            width: 100%;
+            height: calc(100vh - 48px);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+        iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+            outline: none;
+        }
+    </style>
+</head>
+<body>
+    <div id="launcher-header">
+        <div class="title-group">
+            <h1>Gold Tower Defence M</h1>
+            <span class="badge">Busidol Web</span>
+        </div>
+        <div class="btn-group">
+            <button class="btn active" id="btn-local" onclick="switchServer('local')">Web Mode (Tiếng Việt)</button>
+            <button class="btn" id="btn-online" onclick="switchServer('online')">Live Server (103.143.208.18)</button>
+            <button class="btn" onclick="toggleFullscreen()">Toàn Màn Hình ⛶</button>
+        </div>
+    </div>
+
+    <div id="game-container">
+        <iframe id="game-frame" src="./index.html" allow="autoplay; fullscreen"></iframe>
+    </div>
+
+    <script>
+        function switchServer(mode) {
+            const frame = document.getElementById('game-frame');
+            const btnLocal = document.getElementById('btn-local');
+            const btnOnline = document.getElementById('btn-online');
+
+            if (mode === 'online') {
+                frame.src = 'http://103.143.208.18/TOWERDEFENCE_COMMON/index.html';
+                btnOnline.classList.add('active');
+                btnLocal.classList.remove('active');
+            } else {
+                frame.src = './index.html';
+                btnLocal.classList.add('active');
+                btnOnline.classList.remove('active');
+            }
+        }
+
+        function toggleFullscreen() {
+            const elem = document.documentElement;
+            if (!document.fullscreenElement) {
+                if (elem.requestFullscreen) {
+                    elem.requestFullscreen();
+                } else if (elem.webkitRequestFullscreen) {
+                    elem.webkitRequestFullscreen();
+                }
+            } else {
+                if (document.exitFullscreen) {
+                    document.exitFullscreen();
+                }
+            }
+        }
+
+        window.onload = function() {
+            document.getElementById('game-frame').focus();
+        };
+    </script>
+</body>
+</html>

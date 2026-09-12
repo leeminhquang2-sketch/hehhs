@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta http-equiv="Content-Security-Policy"
+        content="default-src 'self' data: blob: http: https:; script-src 'self' 'unsafe-inline' 'unsafe-eval' data: blob: http: https:; style-src 'self' 'unsafe-inline' data: blob: http: https:; img-src 'self' data: blob: http: https:; connect-src 'self' http: https: ws: wss:; media-src 'self' data: blob: http: https:; font-src 'self' data: blob: http: https:">
+    <title>Gold Tower Defence</title>
+    <link rel="stylesheet" href="css/Main.css" type="text/css">
+
+    <link rel="stylesheet" href="css/Main.css" type="text/css">
+    <script type="text/javascript" src="javascript/jquery-3.4.1.min.js"></script>
+
+    <!-- PHP mock interceptor: catches all $.ajax .php calls and returns fake OK responses.
+         Must be loaded AFTER jQuery and BEFORE all game scripts. -->
+    <script type="text/javascript" src="javascript/php_mock.js"></script>
+
+    <script type="text/javascript" src="./KR_INPUT/kr_input_with_mouse.js"></script> <!-- ktcloud15 TD -->
+
+    <!-- Load CryptoJS (aes.js) FIRST so it's ready before patch.js stub and define_gh.js -->
+    <script type="text/javascript" src="./CRYPTO/aes.js"></script>
+    <script type="text/javascript" src="./define/define.js"></script>
+
+    <script type="text/javascript" src="./platform.js"></script> <!-- 각 플랫폼 명을 기재 -->
+
+    <!-- <script type="text/javascript" src="./min/GTD.min_20250929_1030.js?20250929_1030"></script> -->
+    <script type="text/javascript" src="./min/GTD.min_20260724_1100.js"></script>
+    <!-- 
+        <script type="text/javascript" src = "javascript/util_Language.js"></script>
+        <script type="text/javascript" src = "javascript/util_Language_kr.js"></script>
+        <script type="text/javascript" src = "javascript/util_Language_en.js"></script>
+        <script type="text/javascript" src = "javascript/util_Language_vn.js"></script>
+        <script type="text/javascript" src = "javascript/util_Language_es.js"></script>
+        <script type="text/javascript" src = "javascript/util_Language_pt.js"></script>
+        <script type="text/javascript" src = "javascript/util_Language_tr.js"></script>
+        <script type="text/javascript" src = "javascript/util_Keymap.js"></script>
+        <script type="text/javascript" src = "javascript/util_Function.js"></script>
+        <script type="text/javascript" src = "javascript/util_Global.js"></script>   
+        <script type="text/javascript" src = "javascript/util_ChangeScene.js"></script>
+        <script type="text/javascript" src = "javascript/util_CalDefine.js"></script>
+        <script type="text/javascript" src = "javascript/util_PHP.js"></script>
+        <script type="text/javascript" src = "javascript/util_Storage.js"></script>
+        <script type="text/javascript" src = "javascript/util_WebSocket.js"></script>
+        <script type="text/javascript" src = "javascript/util_Sound.js"></script>
+        <script type="text/javascript" src = "javascript/util_WebAudio.js"></script>
+        <script type="text/javascript" src = "javascript/util_Fake.js"></script>
+        <script type="text/javascript" src = "javascript/util_Advertisement.js"></script>
+
+        <script type="text/javascript" src = "javascript/S_brd_opt.js"></script>
+        <script type="text/javascript" src = "javascript/S_brd_guide.js"></script>
+
+        <script type="text/javascript" src = "javascript/S_game_enum.js"></script>
+        <script type="text/javascript" src = "javascript/Main.js"></script>
+        <script type="text/javascript" src = "javascript/S_mobile_connect_tv.js"></script>      
+        <script type="text/javascript" src = "javascript/S_mobile_connect_amo.js"></script>     
+        <script type="text/javascript" src = "javascript/S_logo.js"></script>
+        <script type="text/javascript" src = "javascript/S_agree.js"></script>
+        <script type="text/javascript" src = "javascript/S_agree_detail.js"></script>
+        <script type="text/javascript" src = "javascript/S_isnum.js"></script>
+        <script type="text/javascript" src = "javascript/S_gongji.js"></script>
+        <script type="text/javascript" src = "javascript/S_attendance.js"></script>
+        <script type="text/javascript" src = "javascript/S_attendance_event.js"></script>
+        <script type="text/javascript" src = "javascript/S_payguide.js"></script>
+        <script type="text/javascript" src = "javascript/S_mainmenu.js"></script>
+        <script type="text/javascript" src = "javascript/S_coupon.js"></script>
+        <script type="text/javascript" src = "javascript/S_mailbox.js"></script>
+        <script type="text/javascript" src = "javascript/S_maketeam.js"></script>
+        <script type="text/javascript" src = "javascript/S_maketeam_tower.js"></script>
+        <script type="text/javascript" src = "javascript/S_maketeam_hero.js"></script>
+        <script type="text/javascript" src = "javascript/S_maketeam_item.js"></script>
+        <script type="text/javascript" src = "javascript/S_levelup_tower.js"></script>
+        <script type="text/javascript" src = "javascript/S_gradeup_tower.js"></script>
+        <script type="text/javascript" src = "javascript/S_gradeup_tower_complete.js"></script>
+        <script type="text/javascript" src = "javascript/S_levelup_hero.js"></script>
+        <script type="text/javascript" src = "javascript/S_upgrade.js"></script>
+        <script type="text/javascript" src = "javascript/S_help.js"></script>
+        <script type="text/javascript" src = "javascript/S_selectstage.js"></script>
+        <script type="text/javascript" src = "javascript/S_selectstage_popup.js"></script>
+        <script type="text/javascript" src = "javascript/S_pvp_ranking.js"></script>
+        <script type="text/javascript" src = "javascript/S_pvp_matching.js"></script>
+        <script type="text/javascript" src = "javascript/S_daytry.js"></script>
+        <script type="text/javascript" src = "javascript/S_daytry_util.js"></script>
+        <script type="text/javascript" src = "javascript/S_prooftop.js"></script>
+        <script type="text/javascript" src = "javascript/S_prooftop_util.js"></script>
+        <script type="text/javascript" src = "javascript/S_gacha.js"></script>
+        <script type="text/javascript" src = "javascript/S_gacha_complete.js"></script>
+        <script type="text/javascript" src = "javascript/S_marketstore.js"></script>
+        <script type="text/javascript" src = "javascript/S_charbook.js"></script>
+        <script type="text/javascript" src = "javascript/S_setting.js"></script>
+        <script type="text/javascript" src = "javascript/S_billing_history.js"></script>     
+        <script type="text/javascript" src = "javascript/S_popup.js"></script>
+        <script type="text/javascript" src = "javascript/S_popupyn.js"></script>                        
+        <script type="text/javascript" src = "javascript/S_popuptot.js"></script>                       
+        <script type="text/javascript" src = "javascript/S_game.js"></script>
+        <script type="text/javascript" src = "javascript/S_game_preload.js"></script>
+        <script type="text/javascript" src = "javascript/S_game_path.js"></script>
+        <script type="text/javascript" src = "javascript/S_game_draw.js"></script>
+        <script type="text/javascript" src = "javascript/S_game_enemy.js"></script>
+        <script type="text/javascript" src = "javascript/S_game_enemy_define.js"></script>
+        <script type="text/javascript" src = "javascript/S_game_ally.js"></script>
+        <script type="text/javascript" src = "javascript/S_game_ally_define.js"></script>
+        <script type="text/javascript" src = "javascript/S_game_hero.js"></script>
+        <script type="text/javascript" src = "javascript/S_game_hero_define.js"></script>
+        <script type="text/javascript" src = "javascript/S_game_stage.js"></script>
+        <script type="text/javascript" src = "javascript/S_game_stage_easy_define.js"></script>
+        <script type="text/javascript" src = "javascript/S_game_stage_normal_define.js"></script>
+        <script type="text/javascript" src = "javascript/S_game_stage_hard_define.js"></script>
+        <script type="text/javascript" src = "javascript/S_game_stage_pvp_define.js"></script>
+        <script type="text/javascript" src = "javascript/S_game_support.js"></script>
+        <script type="text/javascript" src = "javascript/S_game_support_define.js"></script>
+        <script type="text/javascript" src = "javascript/S_game_tower.js"></script>
+        <script type="text/javascript" src = "javascript/S_game_tower_fire.js"></script>
+        <script type="text/javascript" src = "javascript/S_game_tower_define_d.js"></script>
+        <script type="text/javascript" src = "javascript/S_game_tower_define_c.js"></script>
+        <script type="text/javascript" src = "javascript/S_game_tower_define_b.js"></script>
+        <script type="text/javascript" src = "javascript/S_game_tower_define_a.js"></script>
+        <script type="text/javascript" src = "javascript/S_game_tower_define_s.js"></script>
+        <script type="text/javascript" src = "javascript/S_game_tower_define.js"></script>
+        <script type="text/javascript" src = "javascript/S_game_mouse_n_key.js"></script>
+        <script type="text/javascript" src = "javascript/S_game_canvas.js"></script>
+        <script type="text/javascript" src = "javascript/S_game_effect.js"></script>
+        <script type="text/javascript" src = "javascript/S_game_lookup.js"></script>
+        <script type="text/javascript" src = "javascript/S_game_menu.js"></script>
+        <script type="text/javascript" src = "javascript/S_game_item.js"></script>
+        <script type="text/javascript" src = "javascript/S_game_user.js"></script>
+        <script type="text/javascript" src = "javascript/S_game_wave.js"></script>
+        <script type="text/javascript" src = "javascript/S_game_bgani.js"></script>
+        <script type="text/javascript" src = "javascript/S_game_pvp_define_image.js"></script>
+        <script type="text/javascript" src = "javascript/S_game_pvp.js"></script>
+        <script type="text/javascript" src = "javascript/S_game_char_fire.js"></script>
+        <script type="text/javascript" src = "javascript/S_game_install_weapon.js"></script> 
+        <script type="text/javascript" src = "javascript/S_game_util.js"></script>
+        <script type="text/javascript" src = "javascript/S_game_tutorial.js"></script>
+        <script type="text/javascript" src = "javascript/S_game_stageguide.js"></script>
+        <script type="text/javascript" src = "javascript/S_game_synopsis.js"></script> 
+        <script type="text/javascript" src = "javascript/S_gameresult_win.js"></script>
+        <script type="text/javascript" src = "javascript/S_gameresult_fail.js"></script>
+        <script type="text/javascript" src = "javascript/S_gameresult_pvp.js"></script>
+
+        <script type="text/javascript" src = "javascript/S_game_performance_test.js"></script>
+
+        <script type="text/javascript" src = "javascript/S_error_popup.js"></script>
+        <script type="text/javascript" src = "javascript/S_exitpopup.js"></script>
+        <script type="text/javascript" src = "javascript/S_payment.js"></script>
+        <script type="text/javascript" src = "javascript/S_userguide.js"></script>
+        <script type="text/javascript" src = "javascript/S_quest.js"></script>
+        <script type="text/javascript" src = "javascript/S_quest_define.js"></script>
+        <script type="text/javascript" src = "javascript/S_input_pay.js"></script>      
+
+        <script type="text/javascript" src = "javascript/S_guild_jorc.js"></script>     
+        <script type="text/javascript" src = "javascript/S_guild_join.js"></script>     
+        <script type="text/javascript" src = "javascript/S_guild_creation.js"></script>     
+        <script type="text/javascript" src = "javascript/S_guild_main.js"></script>     
+        <script type="text/javascript" src = "javascript/S_guild_management.js"></script>       
+        <script type="text/javascript" src = "javascript/S_guild_delegate.js"></script>     
+        <script type="text/javascript" src = "javascript/S_guild_war.js"></script>      
+        <script type="text/javascript" src = "javascript/S_guild_seasonrank.js"></script>       
+        <script type="text/javascript" src = "javascript/S_guild_flagselect.js"></script>       
+        <script type="text/javascript" src = "javascript/S_game_stage_guildwar_define.js"></script>     
+        <script type="text/javascript" src = "javascript/S_input_system.js"></script>
+        <script type="text/javascript" src = "javascript/S_game_tower_define_legend.js"></script>
+        <script type="text/javascript" src = "javascript/S_game_hero_awake.js"></script>
+        <script type="text/javascript" src = "javascript/S_game_hero_define_awake.js"></script>
+        <script type="text/javascript" src = "javascript/S_game_hero_awake_complete.js"></script>
+        <script type="text/javascript" src = "javascript/S_game_hero_awake_pvp.js"></script>
+        
+        <script type="text/javascript" src = "javascript/S_shortcut.js"></script>
+        <script type="text/javascript" src = "javascript/S_select_deck.js"></script>
+
+
+  </head>
+
+<body onload="Main.on_load();" onunload="Main.on_unload();" onKeyDown="Main.key_down();" scroll="no"
+    ondragstart="return false" draggable="false" onselectstart="return false">
+
+    <img id="SafeZone">
+    <div id="div_body">
+        <!-- Main.maketag()에서 추가 함. -->
+    </div>
+    <div id="S_ERROR_POPUP_div"></div>
+
+    <!-- div id="message"></div -->
+    <div id="MEM_TEST"></div>
+    </body>
+
+</html>
